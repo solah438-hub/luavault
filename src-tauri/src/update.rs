@@ -26,7 +26,7 @@ use crate::hmac;
 /// the very update that fixes the rotation.
 pub const RELEASE_PUBLIC_KEYS: [&str; 2] = [
     // primaire
-    "cdf2ef5728190855f493181075dc1c7cb9794f5fd95f8f8e7508ec6bb662440a",
+    "18b8f3bb375159e7f0eae41bd245d35dc34b600fc53efe4823d39c4bbaf5ad7c",
     // secours
     "67509bad0905b2acd290d2055aaa73c14872d10158c154b04dd9dd5b8d6bb208",
 ];
