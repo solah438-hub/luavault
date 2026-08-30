@@ -14,7 +14,7 @@ fn decode_seed(raw: &str) -> Result<[u8; 32]> {
         bail!("la clé de publication doit être une graine Ed25519 hexadécimale de 32 octets");
     }
     let mut seed = [0u8; 32];
-    for (slot, pair) in seed.iter_mut().zip(hex.as_bytes().chunks_exact(2)) {
+    for (slot, pair) in seed.iter_mut().zip(hex.as_bytes().as_chunks::<2>().0) {
         let pair = std::str::from_utf8(pair).expect("hex is ASCII");
         *slot = u8::from_str_radix(pair, 16)
             .with_context(|| "la clé de publication contient un caractère non hexadécimal")?;
