@@ -22,18 +22,25 @@ fn decode_seed(raw: &str) -> Result<[u8; 32]> {
     Ok(seed)
 }
 
-fn sign(key_path: &str, manifest_path: &str) -> Result<String> {
+fn read_key(key_path: &str) -> Result<SigningKey> {
     let seed = decode_seed(
         &std::fs::read_to_string(key_path)
             .with_context(|| format!("lecture de la clé {key_path}"))?,
     )?;
-    let key = SigningKey::from_bytes(&seed);
-    let public_hex = key
-        .verifying_key()
+    Ok(SigningKey::from_bytes(&seed))
+}
+
+fn public_hex(key: &SigningKey) -> String {
+    key.verifying_key()
         .as_bytes()
         .iter()
         .map(|b| format!("{b:02x}"))
-        .collect::<String>();
+        .collect()
+}
+
+fn sign(key_path: &str, manifest_path: &str) -> Result<String> {
+    let key = read_key(key_path)?;
+    let public_hex = public_hex(&key);
     if !luavault_lib::RELEASE_PUBLIC_KEYS
         .iter()
         .any(|allowed| *allowed == public_hex)
@@ -48,13 +55,17 @@ fn sign(key_path: &str, manifest_path: &str) -> Result<String> {
 
 fn run() -> Result<()> {
     let args: Vec<String> = std::env::args().skip(1).collect();
-    let [command, key_path, manifest_path] = args.as_slice() else {
-        bail!("usage: lvrelease sign <clé-privée> <manifest.json>");
-    };
-    if command != "sign" {
-        bail!("commande inconnue : {command}");
+    match args.as_slice() {
+        [command, key_path] if command == "public-key" => {
+            println!("{}", public_hex(&read_key(key_path)?));
+        }
+        [command, key_path, manifest_path] if command == "sign" => {
+            println!("{}", sign(key_path, manifest_path)?);
+        }
+        _ => {
+            bail!("usage: lvrelease public-key <clé-privée> | sign <clé-privée> <manifest.json>");
+        }
     }
-    println!("{}", sign(key_path, manifest_path)?);
     Ok(())
 }
 

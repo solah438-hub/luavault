@@ -11,8 +11,8 @@ Frosted-glass UI, cold blue palette, a native binary of a few MB.
 [![Platform: Windows](https://img.shields.io/badge/platform-Windows-4f8ef7?style=flat-square&logo=windows&logoColor=white)](#editions)
 [![Built with Tauri](https://img.shields.io/badge/built%20with-Tauri%20v2-4f8ef7?style=flat-square)](https://tauri.app)
 [![Frontend: Svelte 5](https://img.shields.io/badge/frontend-Svelte%205-4f8ef7?style=flat-square&logo=svelte&logoColor=white)](https://svelte.dev)
-[![Latest release](https://img.shields.io/github/v/release/LeGeRyChEeSe/luavault?style=flat-square&color=4f8ef7&label=release)](https://github.com/LeGeRyChEeSe/luavault/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/LeGeRyChEeSe/luavault/total?style=flat-square&color=4f8ef7)](https://github.com/LeGeRyChEeSe/luavault/releases)
+[![Latest release](https://img.shields.io/github/v/release/solah438-hub/luavault?style=flat-square&color=4f8ef7&label=release)](https://github.com/solah438-hub/luavault/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/solah438-hub/luavault/total?style=flat-square&color=4f8ef7)](https://github.com/solah438-hub/luavault/releases)
 [![Discord](https://img.shields.io/badge/discord-join-4f8ef7?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/vSczZGT7aQ)
 
 </div>

@@ -26,9 +26,9 @@ use crate::hmac;
 /// the very update that fixes the rotation.
 pub const RELEASE_PUBLIC_KEYS: [&str; 2] = [
     // primaire
-    "10a4ea19d2f8e680205c0c83d81f2c6eb97629aa43126c4cbc1b633f070cdcac",
+    "cdf2ef5728190855f493181075dc1c7cb9794f5fd95f8f8e7508ec6bb662440a",
     // secours
-    "5a20b4f3ddd5aa2192cc7148ad4a38ec146460d1101f2b8d4701d7673445414f",
+    "67509bad0905b2acd290d2055aaa73c14872d10158c154b04dd9dd5b8d6bb208",
 ];
 
 /// The manifest schema version this client understands.
@@ -102,7 +102,7 @@ pub struct UpdateAvailable {
 // -------------------------------------------------------------------- base URL
 
 /// Production update server, overridable for local testing.
-const DEFAULT_BASE: &str = "https://github.com/LeGeRyChEeSe/luavault/releases/latest/download";
+const DEFAULT_BASE: &str = "https://github.com/solah438-hub/luavault/releases/latest/download";
 
 pub fn base_url() -> String {
     std::env::var("LV_UPDATE_BASE").unwrap_or_else(|_| DEFAULT_BASE.to_string())
